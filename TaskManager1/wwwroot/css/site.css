@@ -64,8 +64,14 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-<!--This-->
 
+.nav-header-h1{
+    color:white;
+    padding:0.5rem;
+}
+.flex-column-nav{
+
+}
 
 .Input-task-title {
     border-radius: 1rem;
@@ -127,6 +133,13 @@ h3 {
     text-align: center;
     margin-left:10rem;
     margin-right: 90rem;
+}
+.task-grid-cat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(850px, 1fr));
+    grid-gap: 40px;
+    max-width: 100%;
+    margin-top: 3rem;
 }
 
 .task-grid {
