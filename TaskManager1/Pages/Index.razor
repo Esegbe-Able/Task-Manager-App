@@ -37,8 +37,9 @@
                     <h4>@task.Title</h4>
                     <!-- Additional task details -->
                     <!--<div>ID:@task.Id</div> -->
-                    <div><input class="Input-fields" @bind="task.Description" /></div>
-                    <div><input class="checkbox" type="checkbox" @bind="task.IsCompleted" /> Completed</div>
+
+                    <div><p class="Input-fields">@task.Description</p></div>
+                    <div class="checkbox"><input type="checkbox" @bind="task.IsCompleted" /> Completed</div>
                     <div class="task-box-btn-align">
                         <button class="task-box-btn" @onclick="() => UpdateTask(task)">Update</button>
                         <button class="task-box-btn" @onclick="() => DeleteTask(task.Id)">Delete</button>
