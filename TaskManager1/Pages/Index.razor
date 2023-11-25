@@ -14,14 +14,14 @@
     <div>
         @foreach (var category in defaultCategories)
         {
-            <button @onclick="() => SetCategory(category)">@category</button>
+            <button class="Task-Cat-btn" @onclick="() => SetCategory(category)">@category</button>
         }
     </div>
     <button class="btn-add" @onclick="AddTask">Add Task</button>
 
 </div>
 <div>
-   <h3>My Tasks</h3>
+    <h3 style="color:#27104E">My Tasks</h3>
 </div>
 
 
@@ -36,12 +36,12 @@
                 <div class="task-box">
                     <h4>@task.Title</h4>
                     <!-- Additional task details -->
-                    <div>ID: @task.Id</div>
-                    <div><input @bind="task.Description" /></div>
-                    <div><input type="checkbox" @bind="task.IsCompleted" /> Completed</div>
-                    <div>
-                        <button @onclick="() => UpdateTask(task)">Update</button>
-                        <button @onclick="() => DeleteTask(task.Id)">Delete</button>
+                    <!--<div>ID:@task.Id</div> -->
+                    <div><input class="Input-fields" @bind="task.Description" /></div>
+                    <div><input class="checkbox" type="checkbox" @bind="task.IsCompleted" /> Completed</div>
+                    <div class="task-box-btn-align">
+                        <button class="task-box-btn" @onclick="() => UpdateTask(task)">Update</button>
+                        <button class="task-box-btn" @onclick="() => DeleteTask(task.Id)">Delete</button>
                     </div>
                 </div>
             }
