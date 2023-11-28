@@ -1,10 +1,10 @@
 ﻿@page "/"
 @inject TaskService taskService 
 
-<h1 style="text-align:center; font-weight:bolder;">Task Manager</h1>
+<h1 style="text-align:center; font-weight:bolder; margin-bottom:3rem;">Task Manager</h1>
 
 <div class="Task-section">
-    <label style="font-size:2.5rem; font-family:'Poppins'; font-weight:600; color:#27104E;">Add Your Task</label>
+    <label style="font-size:2.5rem; font-family:poppins; font-weight:600; color:#0094ff;">Add Your Task</label>
     <div>
     <input class="Input-task-title" @bind="newTaskTitle" placeholder=" Title" />
     </div>
@@ -21,16 +21,14 @@
     <button class="btn-add" @onclick="AddTask">Add Task</button>
 
 </div>
-<div>
-    <h3 style="color:#27104E">My Tasks</h3>
-</div>
 
 
 
 <div class="task-grid-cat">
     @foreach (var category in defaultCategories)
     {
-        
+        <hr>
+        <h3 style="color:lightgray;">@category Tasks</h3>
         <div class="task-grid">
             @foreach (var task in tasks.Where(t => t.Category == category))
             {
