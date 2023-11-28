@@ -153,63 +153,70 @@ h3 {
     margin-top: 2rem;
 }
 
-.cat {
-    text-align: center;
-    margin-left:10rem;
-    margin-right: 90rem;
-}
-.task-grid-cat {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(850px, 1fr));
-    grid-gap: 40px;
-    max-width: 100%;
-    margin-top: 3rem;
-}
-
 .task-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 110px;
     max-width:100%;
-    margin-top: 3rem;
+    margin-top:5rem;
+    margin-right:5rem;
 }
 @media only screen and (max-width: 700px){
     .task-grid {
-        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         grid-gap:20px;
     }
 }
 
 
-h4 {
-    text-align:center;
+.title {
+    text-align:start;
     font-weight: 600;
-    margin-top:1rem;
-    color: #27104E;
-    margin-bottom:0.5rem;
+    margin-top:0.1rem;
+    color: blue;
+    margin-bottom: 0.5rem;
+}
+
+.create-at{
+    position:relative;
+    left:0.1rem;
+    margin-top:0.1rem;
+    color:gray;
+    font-weight:bold;
+}
+.cat {
+    position: relative;
+    left: 6rem;
+    color: gray;
+    font-weight: bold;
+    border: thin;
+    border-radius: 0.5rem;
+    width: 4rem;
+    text-align: center;
+}
+.beg{
+    display:flex;
 }
 .task-box {
     background-color: #FCFBFF;
-    font-family:Cambria;
+    font-family: Cambria;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
     border-radius: 1rem;
     padding-top: 0.8rem;
-    padding: 0.8rem;
-    height: 16rem;
-    margin: 1rem;
+    padding: 1.5rem;
+    height: 22rem;
     width: 18rem;
     transition: transform 0.3s ease-in-out;
 }
     .task-box:hover {
         transform: scale(1.1);
-        background-color: #DDACF566;
     }
 .Input-fields {
     margin-top: 0.3rem;
     margin-bottom:1rem;
     border: none;
     width: 100%;
-    height: 4rem;
+    height: 2rem;
     border-radius: 0.4rem;
 }
 .task-box-div{
@@ -226,7 +233,8 @@ h4 {
 }
 .task-box-btn {
     height: 2.5rem;
-    font-size:1.3rem;
+    font-size:1.2rem;
+    font-weight:bold;
     width: 5rem;
     border: none;
     border-radius: 0.8rem;
@@ -247,3 +255,51 @@ h4 {
     border-radius:6rem;
     color:red;
 }
+
+.span-cat{
+    margin-right:3rem;
+    font-size:x-large;
+}
+
+
+/*calendar*/
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.calendar {
+    border: 3px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #FCFBFF;
+    padding: 20px;
+    margin: 10px;
+    height: 400px;
+    width: 600px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+.cal-btn{
+    border-radius:0.5rem;
+    width:5rem;
+    height:2.5rem;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+}
+
+    .days div {
+        border: 1px solid #ddd;
+        padding: 5px;
+        text-align: center;
+    }

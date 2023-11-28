@@ -9,6 +9,19 @@ public class TaskService
 {
     private List<TaskModel> tasks = new List<TaskModel>(); //we declare a private field tasks to store a list of Taks or TaskModel objects. 
 
+    private List<string> defaultCategories = new List<string> { "Work", "Personal", "Shopping", "Health" };
+
+    public TaskService()
+    {
+        // Initialize tasks with default categories
+        foreach (var category in defaultCategories)
+        {
+            AddTask(new TaskModel { Title = $"{category} Task 1", Category = category });
+            AddTask(new TaskModel { Title = $"{category} Task 2", Category = category });
+            // Add more default tasks as needed
+        }
+    }
+
     public List<TaskModel> GetTasks() // This method is a public method that returns the list of tasks.
     {
         return tasks;
@@ -17,6 +30,8 @@ public class TaskService
     public void AddTask(TaskModel task) // The AddTask method adds a new task to the list.
     {
         task.Id = tasks.Count + 1;
+        task.CreatedAt = DateTime.Now;
+
         tasks.Add(task);
     }
 
@@ -29,6 +44,7 @@ public class TaskService
             existingTask.Description = task.Description;
             existingTask.IsCompleted = task.IsCompleted;
             existingTask.Category = task.Category;
+            existingTask.Deadline = task.Deadline;
         }
     }
 
@@ -36,4 +52,5 @@ public class TaskService
     {
         tasks.RemoveAll(t => t.Id == taskId);
     }
+
 }

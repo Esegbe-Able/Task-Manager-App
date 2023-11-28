@@ -11,6 +11,7 @@
     <div>
         <textarea class="Input-task-desc" @bind="newTaskDescription" placeholder="  Describe your task" cols="50" rows="5"/>
     </div>
+    <!--<input type="datetime-local" @bind="newTaskDeadline" placeholder="Task Deadline" /> -->
     <div>
         @foreach (var category in defaultCategories)
         {
@@ -29,16 +30,27 @@
 <div class="task-grid-cat">
     @foreach (var category in defaultCategories)
     {
-        <div class="cat"><h3>@category</h3> </div>
+        
         <div class="task-grid">
             @foreach (var task in tasks.Where(t => t.Category == category))
             {
                 <div class="task-box">
-                    <h4>@task.Title</h4>
+                    <div class="beg">
+                    <p class="create-at">@task.CreatedAt.ToString("yyyy-MM-dd")</p>
+                    <p class="cat">@category</p>
+                    </div>
+                    <h3 class="title">@task.Title</h3>
                     <!-- Additional task details -->
                     <!--<div>ID:@task.Id</div> -->
 
                     <div><p class="Input-fields">@task.Description</p></div>
+
+                    <!--<p>Deadline:@task.Deadline?.ToString("yyyy-MM-dd")</p> -->
+                    <div>
+                        <progress max="100" value="@task.Progress"></progress>
+                    </div>
+                    <label>Progress</label>
+                    <hr style="width:90%">
                     <div class="checkbox"><input type="checkbox" @bind="task.IsCompleted" /> Completed</div>
                     <div class="task-box-btn-align">
                         <button class="task-box-btn" @onclick="() => UpdateTask(task)">Update</button>
@@ -54,6 +66,7 @@
 @code {
     private string newTaskTitle = "";
     private string newTaskDescription = "";
+    private DateTime? newTaskDeadline;
     private List<TaskModel> tasks;
 
     private string newTaskCategory = "";
@@ -73,6 +86,7 @@
     {
         if (!string.IsNullOrEmpty(newTaskTitle) && !string.IsNullOrEmpty(newTaskCategory))
         {
+
             taskService.AddTask(new TaskModel
                 { 
                     Title = newTaskTitle, 
