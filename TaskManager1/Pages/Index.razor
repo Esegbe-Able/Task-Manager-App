@@ -44,10 +44,6 @@
                     <div><p class="Input-fields">@task.Description</p></div>
 
                     <!--<p>Deadline:@task.Deadline?.ToString("yyyy-MM-dd")</p> -->
-                    <div>
-                        <progress max="100" value="@task.Progress"></progress>
-                    </div>
-                    <label>Progress</label>
                     <hr style="width:90%">
                     <div class="checkbox"><input type="checkbox" @bind="task.IsCompleted" /> Completed</div>
                     <div class="task-box-btn-align">
